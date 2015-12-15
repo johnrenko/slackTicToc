@@ -1,9 +1,32 @@
 {
-  "name": "Slack TicToc",
-  "version": "0.0.1",
+  "name": "slack_tictoc",
+  "version": "1.0.0",
+  "description": "slack slash command to auto delete message after certain amount of time",
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.8.1",
-    "express": "^4.9.0",
-    "request": "^2.67.0"
-  }
+    "express": "^4.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnrenko/slackTicToc.git"
+  },
+  "keywords": [
+    "slack",
+    "plugin",
+    "tictoc",
+    "timer",
+    "message"
+  ],
+  "author": "JohnRenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/johnrenko/slackTicToc/issues"
+  },
+  "homepage": "https://github.com/johnrenko/slackTicToc#readme"
 }
