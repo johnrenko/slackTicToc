@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
 var https = require("https");
+var util = require('util');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -17,16 +18,36 @@ app.post('/',function(req,res){
   var text=req.body.text;
   var username=req.body.user_name;
   var link="https://slack.com/api/chat.postMessage?token="+token+"&channel="+channel+"&text="+text+"&username="+username+"&as_user=yes&pretty=1";
+  var ts ="";
 
   console.log(link);
 
   https.get(link, function(res) {
-  	console.log("Got response: " + res.statusCode);
-  }).on('error', function(e) {
-  	console.log("Got error: " + e.message);
+
+    var bodyChunks = [];
+    res.on('data', function(chunk) {
+
+      bodyChunks.push(chunk);
+
+    }).on('end', function() {
+    var body = Buffer.concat(bodyChunks);
+    console.log('BODY: ' + body);
+    var obj = JSON.parse(body);
+    ts = obj.ts;
+
+    var dellink="https://slack.com/api/chat.delete?token="+token+"&ts="+ts+"&channel="+channel+"&pretty=1";
+    function removeMsg () {
+      https.get(dellink)
+    };
+    setTimeout(removeMsg,10000);
+
+    });
+
   });
 
   res.end("msg sent");
+
+  console.log(ts);
 });
 
 /* sendToSlack: function(attachment, integration, message) {
@@ -63,7 +84,7 @@ app.post('/',function(req,res){
 
 app.listen(3000,function(){
   console.log("Started on PORT 3000");
-})
+});
 
 
 
