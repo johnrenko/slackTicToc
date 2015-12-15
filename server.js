@@ -17,7 +17,7 @@ app.post('/',function(req,res){
   var channel=req.body.channel_id;
   var text=req.body.text;
   var username=req.body.user_name;
-  var link="https://slack.com/api/chat.postMessage?token="+token+"&channel="+channel+"&text="+text+"&username="+username+"&as_user=yes&pretty=1";
+  var link="https://slack.com/api/chat.postMessage?token=xoxp-3586098260-3586109096-16554855155-f98be9a704&channel="+channel+"&text="+text+"&username="+username+"&as_user=yes&pretty=1";
   var ts ="";
 
   console.log(link);
