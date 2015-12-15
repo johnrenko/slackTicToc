@@ -45,8 +45,6 @@ app.post('/',function(req,res){
 
   });
 
-  res.end("msg sent");
-
   console.log(ts);
 });
 
