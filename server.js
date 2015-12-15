@@ -35,7 +35,7 @@ app.post('/',function(req,res){
     var obj = JSON.parse(body);
     ts = obj.ts;
 
-    var dellink="https://slack.com/api/chat.delete?token="+token+"&ts="+ts+"&channel="+channel+"&pretty=1";
+    var dellink="https://slack.com/api/chat.delete?token=xoxp-3586098260-3586109096-16554855155-f98be9a704&ts="+ts+"&channel="+channel+"&pretty=1";
     function removeMsg () {
       https.get(dellink)
     };
