@@ -17,7 +17,7 @@ app.post('/',function(req,res){
   var channel=req.body.channel_id;
   var text=req.body.text;
   var username=req.body.user_name;
-  var link="https://slack.com/api/chat.postMessage?token=xoxp-3586098260-3586109096-16554855155-f98be9a704&channel="+channel+"&text="+text+"&username="+username+"&as_user=yes&pretty=1";
+  var link="https://slack.com/api/chat.postMessage?token=xoxp-2315277109-4999683096-16794897169-67424f16cc&channel="+channel+"&text="+text+"&username="+username+"&as_user=yes&pretty=1";
   var ts ="";
 
   console.log(link);
@@ -35,7 +35,7 @@ app.post('/',function(req,res){
     var obj = JSON.parse(body);
     ts = obj.ts;
 
-    var dellink="https://slack.com/api/chat.delete?token=xoxp-3586098260-3586109096-16554855155-f98be9a704&ts="+ts+"&channel="+channel+"&pretty=1";
+    var dellink="https://slack.com/api/chat.delete?token=xoxp-2315277109-4999683096-16794897169-67424f16cc&ts="+ts+"&channel="+channel+"&pretty=1";
     function removeMsg () {
       https.get(dellink)
     };
