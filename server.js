@@ -20,6 +20,8 @@ app.post('/',function(req,res){
   var link="https://slack.com/api/chat.postMessage?token=xoxp-2315277109-4999683096-16794897169-67424f16cc&channel="+channel+"&text="+text+"&username="+username+"&as_user=yes&pretty=1";
   var ts ="";
 
+  console.log(token);
+
   console.log(link);
 
   https.get(link, function(res) {
