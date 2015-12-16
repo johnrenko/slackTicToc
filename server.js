@@ -39,7 +39,7 @@ app.post('/',function(req,res){
     function removeMsg () {
       https.get(dellink)
     };
-    setTimeout(removeMsg,10000);
+    setTimeout(removeMsg,600000);
 
     });
 
